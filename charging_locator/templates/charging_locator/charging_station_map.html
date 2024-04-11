@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charging Station Locator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Pitch black background */
+            color: #fff;
+            padding: 20px;
+            text-align: center; /* Center-align text */
+        }
+
+        .container {
+            background-color: #000;
+            border: 2px solid #00ff00; /* Neon green outline */
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        #map-container {
+            width: 100%;
+            border: 2px solid #00ff00; /* Neon green outline */
+            border-radius: 10px;
+            overflow: hidden; /* Ensure map image doesn't overflow */
+        }
+
+        #map {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Charging Station Locator</h1>
+    </div>
+
+    <div id="map-container">
+        <img id="map" src="{% static 'charging_locator/charging_station_map.png' %}" alt="Charging Station Map">
+    </div>
+</body>
+</html>

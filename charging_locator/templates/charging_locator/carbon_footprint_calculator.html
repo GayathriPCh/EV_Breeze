@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'fp.jpeg' %}");
+            background-size: cover;
+            background-position: center;
+            color: #00ff00; /* Neon green text */
+            text-align: center;
+        }
+
+        .container {
+            background-color: #000;
+            border: 2px solid #00ff00; /* Neon green outline */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto; /* Center-align container */
+            width: 50%; /* Set width to 50% of the viewport */
+        }
+
+        input[type="number"] {
+            background-color: #000;
+            color: #00ff00; /* Neon green text */
+            border: 2px solid #00ff00; /* Neon green outline */
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box; /* Ensure width includes padding and border */
+        }
+
+        select {
+            background-color: #000;
+            color: #00ff00; /* Neon green text */
+            border: 2px solid #00ff00; /* Neon green outline */
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box; /* Ensure width includes padding and border */
+        }
+
+        button {
+            background-color: #00ff00; /* Neon green background */
+            color: #000; /* Black text */
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #009900; /* Darker neon green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carbon Footprint Calculator</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="distance">Distance (in miles):</label><br>
+            <input type="number" id="distance" name="distance" required><br><br>
+            
+            <label for="vehicle_type">Vehicle Type:</label><br>
+            <select id="vehicle_type" name="vehicle_type" required>
+                <option value="electric_car">Electric Car</option>
+                <option value="public_transport">Public Transport</option>
+                <option value="bicycle">Bicycle</option>
+            </select><br><br>
+            
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Charging Stations</title>
+    <style>
+        /* CSS styles integrated within the HTML */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            color: #00ff00; /* Neon green text */
+            text-align: center;
+        }
+        .station {
+            margin-bottom: 20px;
+            background-color: #111; /* Darker background color */
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #00ff00; /* Neon green outline */
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background-color: #0f0; /* Light neon green */
+            color: #000; /* Black text */
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0c0; /* Slightly darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Community Charging Stations</h1>
+    {% for station in stations %}
+        <div class="station">
+            <h2>{{ station.name }}</h2>
+            <p>City: {{ station.city }}</p>
+            <p>Latitude: {{ station.latitude }}</p>
+            <p>Longitude: {{ station.longitude }}</p>
+            <a class="button" href="{% url 'charging_station_detail' station.id %}">See Reviews</a>
+            <a class="button" href="{% url 'submit_charging_station_review' station.id %}">Submit Review</a>
+        </div>
+    {% endfor %}
+</body>
+</html>

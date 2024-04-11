@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Vehicle Homepage</title>
+    <style>
+        /* CSS styles integrated within the HTML */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'bgev.jpg' %}");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .navbar {
+            background-color: black;
+            color: #00ff00; /* Neon green color */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #00ff00; /* Neon green color */
+            margin-right: 20px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    height: 100vh;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border: 2px solid #00ff00; /* Neon green outline */
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px; /* Round the corners */
+    font-size: 16px; /* Set the font size */
+    text-align: center; /* Center align the text */
+}
+
+
+
+        .box:hover {
+            background-color: #222; /* Darker background color on hover */
+        }
+    </style>
+    <script>
+        // JavaScript function to redirect to the charging stations page
+        function redirectToChargingStations() {
+            window.location.href = "{% url 'charging_station_map' %}";
+        }
+
+        // JavaScript function to redirect to the carbon footprint calculator page
+        function redirectToCarbonFootprintCalculator() {
+            window.location.href = "{% url 'carbon_footprint_calculator' %}";
+        }
+
+        // JavaScript function to redirect to the community station reviews page
+        function redirectToCommunityStationReviews() {
+            window.location.href = "{% url 'community_reviews' %}";
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="{% static 'logoev.png' %}" alt="Electric Vehicle Logo" height="50">
+        <div>
+            <a href="#">About</a>
+            <a href="#">Login</a>
+            <a href="#">Signup</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Add onclick event handlers to each box -->
+        <div class="box" onclick="redirectToChargingStations()">Charging stations</div>
+        <div class="box" onclick="redirectToCarbonFootprintCalculator()">Carbon Footprint calculator</div>
+        <div class="box" onclick="redirectToCommunityStationReviews()">Community station reviews</div>
+    </div>
+</body>
+</html>

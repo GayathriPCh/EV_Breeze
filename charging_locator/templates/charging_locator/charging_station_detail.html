@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ charging_station.name }}</title>
+    <style>
+        /* CSS styles integrated within the HTML */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            color: #00ff00; /* Neon green text */
+            text-align: center;
+        }
+        h1 {
+            color: #00ff00; /* Neon green heading */
+        }
+        p {
+            color: #fff; /* White text */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #111; /* Darker background color */
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        li strong {
+            color: #00ff00; /* Neon green text */
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"],
+        textarea {
+            background-color: #111; /* Darker background color */
+            color: #00ff00; /* Neon green text */
+            border: 2px solid #00ff00; /* Neon green border */
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        select {
+            background-color: #111; /* Darker background color */
+            color: #00ff00; /* Neon green text */
+            border: 2px solid #00ff00; /* Neon green border */
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #0f0; /* Light neon green */
+            color: #000; /* Black text */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0c0; /* Slightly darker green on hover */
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>{{ charging_station.name }}</h1>
+    <p>Location: {{ charging_station.location }}</p>
+
+    <h2>Reviews</h2>
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li>
+                    <strong>Rating:</strong> {{ review.rating }}<br>
+                    <strong>Comment:</strong> {{ review.comment }}<br>
+                    <small>By {{ review.user }} on {{ review.created_at }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if rating %}
+            <p><strong>Average Rating:</strong> {{ rating.average_rating }}</p>
+        {% endif %}
+    {% else %}
+        <p>No reviews yet.</p>
+    {% endif %}
+
+    <h2>Add a Review</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Review</button>
+    </form>
+</body>
+</html>

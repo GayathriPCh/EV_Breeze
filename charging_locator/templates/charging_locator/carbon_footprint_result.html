@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'fp.jpeg' %}");
+            background-size: cover;
+            background-position: center;
+            color: #00ff00; /* Neon green text */
+            text-align: center;
+        }
+
+        .container {
+            background-color: #000;
+            border: 2px solid #00ff00; /* Neon green outline */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto; /* Center-align container */
+            width: 50%; /* Set width to 50% of the viewport */
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carbon Footprint Result</h1>
+        <p>The estimated carbon footprint for your transportation choice is: {{ carbon_footprint }} kg CO2.</p>
+    </div>
+</body>
+</html>
