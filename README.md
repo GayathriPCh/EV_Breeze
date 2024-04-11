@@ -1,5 +1,5 @@
 # EV_Breeze
-# This project is part of the ImpacTech 2K24 24 hr hackathon conducted at my college.
+# This project is part of the ImpacTech 2K23 24 hr hackathon conducted at my college.
 This was my first hackathon and first full-stack project.
 # Problem Statement
 Develop a mobile app that helps users plan and track their eco-friendly transportation options, such as electric vehicle (EV) charging stations, public transportation, and bike-sharing services. The app should provide users with easy access to information about nearby charging stations, public transportation schedules and routes, and available bikes for sharing. By promoting green transportation alternatives, the app aims to reduce carbon emissions and support sustainable mobility practices.
